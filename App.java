@@ -1,10 +1,14 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
 
 public class App extends JFrame {
     //Declaring a JTextArea
@@ -29,8 +33,13 @@ public class App extends JFrame {
          * 5-Add an action listener to the button that calls the load CSV function (below)
          * 6-Play around with coloring and styling to make your application look more professional
          */
-        
+        JButton loadButton = new JButton("LoadCSV");
+        loadButton.addActionListener(e -> loadCsv("path_to_your_csv_file.csv"));
 
+        textArea = new JTextArea();
+        textArea.setEditable(false);
+
+        JScrollPane scrollPane = new JScrollPane(textArea);
         add(loadButton, BorderLayout.NORTH);
         add(scrollPane, BorderLayout.CENTER);
     }
